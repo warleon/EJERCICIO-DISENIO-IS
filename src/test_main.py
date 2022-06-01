@@ -1,4 +1,4 @@
-from ../main import isOldEnough
+from main import isOldEnough
 import unittest
 
 class TestIsOldEnough(unittest.TestCase):
