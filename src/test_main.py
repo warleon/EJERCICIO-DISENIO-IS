@@ -1,7 +1,7 @@
 from main import is_old_enough
 import unittest
 
-class Testis_old_enough(unittest.TestCase):
+class TestIsOldEnough(unittest.TestCase):
 	def test_is_old_enough(self):
 		self.assertEqual(is_old_enough("2000/01/01","2020/01/01"), True)
 		self.assertEqual(is_old_enough("2000/01/01","2003/01/01"), False)
