@@ -11,7 +11,7 @@ def is_old_enough(birthdate,date_test):
 	try:
 		d1 = datetime.strptime(birthdate, "%Y/%m/%d")
 		d2 = datetime.strptime(date_test, "%Y/%m/%d")
-	except AttributeError:
+	except TypeError:
 		raise DateFormatException
 	diff= d2.year - d1.year
 	if(diff<0):
