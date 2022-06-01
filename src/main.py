@@ -1,15 +1,14 @@
 from datetime import datetime
 
-class DateException(Exception):
-	pass
-
-
 def isOldEnough(birthdate,dateTest):
-	d1 = datetime.strptime(birthdate, "%Y/%m/%d")
-	d2 = datetime.strptime(dateTest, "%Y/%m/%d")
+	try:
+		d1 = datetime.strptime(birthdate, "%Y/%m/%d")
+		d2 = datetime.strptime(dateTest, "%Y/%m/%d")
+	except :
+		raise Exception("DateFormatException")
 	diff= d2.year - d1.year
 	if(diff<0):
-		raise DateException
+		raise Exception("DateException")
 	else:
 		return (diff > 18)
 
@@ -23,11 +22,11 @@ def main():
 	except Exception as err:#
 		print(err)#
 	try:#
-		print(isOldEnough("2000/01/01","1940/01/01"))#raise
+		print(isOldEnough("2000/01/01","1940/01/01"))#DateException
 	except Exception as err:#
 		print(err)#
 	try:#
-		print(isOldEnough("2000-01-01","2000-01-01"))#raise
+		print(isOldEnough("2000-01-01","2000-01-01"))#DateFormatException
 	except Exception as err:
 		print(err)
 		
